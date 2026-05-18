@@ -3,12 +3,22 @@ create database hotel;
 use Hotel;
 
 CREATE TABLE Hotel (
-    id INT PRIMARY KEY AUTO_INCREMENT,  -- Se for SQL Server, use IDENTITY(1,1)
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     endereco VARCHAR(200) NOT NULL,
     cidade VARCHAR(100) NOT NULL,
     telefone VARCHAR(20) NOT NULL,
-    estrelas INT                        -- Avaliação do hotel (ex: 3, 4, 5 estrelas)
+    estrelas INT
+);
+
+CREATE TABLE hospedes (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(30) NOT NULL,
+    sobrenome VARCHAR(30) NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    dataNascimento DATE NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    telefone VARCHAR(11) NOT NULL
 );
 
 create table Quarto (
@@ -18,7 +28,6 @@ create table Quarto (
     precoDiaria decimal (10,2) not null,
     status varchar(30) not null,
     hotelId int not null,
-    
     FOREIGN KEY (hotelId) REFERENCES Hotel(id)
 );
 
