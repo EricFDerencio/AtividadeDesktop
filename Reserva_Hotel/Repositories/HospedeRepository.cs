@@ -77,7 +77,7 @@ namespace Reserva_Hotel.Repositories
                 {
                     conn.Open();
 
-                    string sql = "SELECT * FROM hospedes WHERE nome LIKE '%@Nome%' AND sobrenome LIKE '%@Sobrenome%';";
+                    string sql = "SELECT * FROM hospedes WHERE nome LIKE CONCAT('%', @Nome, '%') AND sobrenome LIKE CONCAT('%', @Sobrenome, '%');";
 
                     return conn.Query<Hospede>(sql, new { Nome = nome, Sobrenome = sobrenome });
                 }
@@ -98,7 +98,7 @@ namespace Reserva_Hotel.Repositories
                     conn.Open();
 
                     string sql = @"UPDATE hospedes
-                               SET nome = @Nome, sobrenome = @Sobrenome, cpf = @Cpf, dataNascimento = @DataNascimento
+                               SET nome = @Nome, sobrenome = @Sobrenome, cpf = @Cpf, dataNascimento = @DataNascimento,
                                    email = @Email, telefone = @Telefone
                                WHERE id = @Id;";
 
