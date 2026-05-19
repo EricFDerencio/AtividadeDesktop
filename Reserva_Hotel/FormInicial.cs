@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Reserva_Hotel {
@@ -22,6 +15,12 @@ namespace Reserva_Hotel {
         private void btnHoteis_Click(object sender, EventArgs e) {
             FormHotel formHotel = new FormHotel();
             formHotel.ShowDialog();
+        }
+
+        private void btnHospedes_Click(object sender, EventArgs e)
+        {
+            FormHospede formHospede = new FormHospede();
+            formHospede.ShowDialog();
         }
     }
 }
