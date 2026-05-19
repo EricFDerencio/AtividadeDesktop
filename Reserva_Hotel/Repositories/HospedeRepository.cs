@@ -69,6 +69,25 @@ namespace Reserva_Hotel.Repositories
             }
         }
 
+        public IEnumerable<Hospede> ObterPorNome(string nome, string sobrenome)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    string sql = "SELECT * FROM hospedes WHERE nome LIKE '%@Nome%' AND sobrenome LIKE '%@Sobrenome%';";
+
+                    return conn.Query<Hospede>(sql, new { Nome = nome, Sobrenome = sobrenome });
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception($"Erro com o banco de dados: {ex.Message}");
+            }
+        }
+
         public void Editar(Hospede hospede)
         {
             try
