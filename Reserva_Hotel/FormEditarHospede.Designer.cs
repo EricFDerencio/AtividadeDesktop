@@ -114,6 +114,7 @@
             // 
             // dtpDataNascimento
             // 
+            this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataNascimento.Location = new System.Drawing.Point(15, 398);
             this.dtpDataNascimento.Margin = new System.Windows.Forms.Padding(6);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
@@ -144,6 +145,7 @@
             this.btnSalvar.TabIndex = 26;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
@@ -153,6 +155,7 @@
             this.btnCancelar.TabIndex = 27;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtBxCPF
             // 
@@ -191,6 +194,7 @@
             this.Controls.Add(this.txtBxNome);
             this.Name = "FormEditarHospede";
             this.Text = "FormEditarHospede";
+            this.Load += new System.EventHandler(this.FormEditarHospede_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
