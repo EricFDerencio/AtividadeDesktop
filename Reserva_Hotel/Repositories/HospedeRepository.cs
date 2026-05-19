@@ -50,6 +50,25 @@ namespace Reserva_Hotel.Repositories
 
         }
 
+        public Hospede ObterUm(int id)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    string sql = "SELECT * FROM hospedes WHERE id = @Id;";
+
+                    return conn.QueryFirstOrDefault<Hospede>(sql, new { Id = id });
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception($"Erro com o banco de dados: {ex.Message}");
+            }
+        }
+
         public void Editar(Hospede hospede)
         {
             try
