@@ -15,7 +15,7 @@ CREATE TABLE hospedes (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(30) NOT NULL,
     sobrenome VARCHAR(30) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
     dataNascimento DATE NOT NULL,
     email VARCHAR(50) NOT NULL,
     telefone VARCHAR(11) NOT NULL

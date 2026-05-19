@@ -82,14 +82,14 @@ namespace Reserva_Hotel
                 return false;
             }
 
-            if (txtBxCPF.Text.Length != 11)
+            if (txtBxCPF.Text.Length != 14)
             {
                 MessageBox.Show("CPF precisa ser composto por 11 dígitos");
                 txtBxCPF.Focus();
                 return false;
             }
 
-            if (dtpDataNascimento.Value.AddYears(18) <= DateTime.Now) 
+            if (dtpDataNascimento.Value.AddYears(18) >= DateTime.Now) 
             {
                 MessageBox.Show("Não pode ter menos que 18 anos de idade");
                 dtpDataNascimento.Focus();
