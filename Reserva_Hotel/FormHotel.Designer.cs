@@ -46,6 +46,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(221, 212);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // lblNomeHotel
             // 
@@ -143,6 +144,7 @@
             this.btnSalvarHotel.TabIndex = 11;
             this.btnSalvarHotel.Text = "Salvar";
             this.btnSalvarHotel.UseVisualStyleBackColor = true;
+            this.btnSalvarHotel.Click += new System.EventHandler(this.btnSalvarHotel_Click);
             // 
             // btnEditarHotel
             // 
@@ -152,6 +154,7 @@
             this.btnEditarHotel.TabIndex = 12;
             this.btnEditarHotel.Text = "Editar";
             this.btnEditarHotel.UseVisualStyleBackColor = true;
+            this.btnEditarHotel.Click += new System.EventHandler(this.btnEditarHotel_Click);
             // 
             // btnExcluirHotel
             // 
@@ -161,6 +164,7 @@
             this.btnExcluirHotel.TabIndex = 13;
             this.btnExcluirHotel.Text = "Excluir";
             this.btnExcluirHotel.UseVisualStyleBackColor = true;
+            this.btnExcluirHotel.Click += new System.EventHandler(this.btnExcluirHotel_Click);
             // 
             // FormHotel
             // 
@@ -183,6 +187,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "FormHotel";
             this.Text = "Hotel";
+            this.Load += new System.EventHandler(this.FormHotel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

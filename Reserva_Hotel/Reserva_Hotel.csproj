@@ -116,9 +116,11 @@
     <Compile Include="FormQuarto.Designer.cs">
       <DependentUpon>FormQuarto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Quarto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\HotelRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\QuartoRepository.cs" />
     <EmbeddedResource Include="FormHotel.resx">
