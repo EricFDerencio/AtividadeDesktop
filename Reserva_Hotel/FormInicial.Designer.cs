@@ -25,13 +25,15 @@
         private void InitializeComponent() {
             this.btnQuartos = new System.Windows.Forms.Button();
             this.btnHoteis = new System.Windows.Forms.Button();
+            this.btnHospedes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnQuartos
             // 
-            this.btnQuartos.Location = new System.Drawing.Point(56, 60);
+            this.btnQuartos.Location = new System.Drawing.Point(112, 115);
+            this.btnQuartos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnQuartos.Name = "btnQuartos";
-            this.btnQuartos.Size = new System.Drawing.Size(75, 23);
+            this.btnQuartos.Size = new System.Drawing.Size(150, 44);
             this.btnQuartos.TabIndex = 0;
             this.btnQuartos.Text = "Quartos";
             this.btnQuartos.UseVisualStyleBackColor = true;
@@ -39,21 +41,35 @@
             // 
             // btnHoteis
             // 
-            this.btnHoteis.Location = new System.Drawing.Point(56, 106);
+            this.btnHoteis.Location = new System.Drawing.Point(112, 204);
+            this.btnHoteis.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnHoteis.Name = "btnHoteis";
-            this.btnHoteis.Size = new System.Drawing.Size(75, 23);
+            this.btnHoteis.Size = new System.Drawing.Size(150, 44);
             this.btnHoteis.TabIndex = 1;
             this.btnHoteis.Text = "Hoteis";
             this.btnHoteis.UseVisualStyleBackColor = true;
             this.btnHoteis.Click += new System.EventHandler(this.btnHoteis_Click);
             // 
+            // btnHospedes
+            // 
+            this.btnHospedes.Location = new System.Drawing.Point(112, 297);
+            this.btnHospedes.Margin = new System.Windows.Forms.Padding(6);
+            this.btnHospedes.Name = "btnHospedes";
+            this.btnHospedes.Size = new System.Drawing.Size(150, 44);
+            this.btnHospedes.TabIndex = 2;
+            this.btnHospedes.Text = "Hóspedes";
+            this.btnHospedes.UseVisualStyleBackColor = true;
+            this.btnHospedes.Click += new System.EventHandler(this.btnHospedes_Click);
+            // 
             // FormInicial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.Controls.Add(this.btnHospedes);
             this.Controls.Add(this.btnHoteis);
             this.Controls.Add(this.btnQuartos);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FormInicial";
             this.Text = "FormInicial";
             this.ResumeLayout(false);
@@ -64,5 +80,6 @@
 
         private System.Windows.Forms.Button btnQuartos;
         private System.Windows.Forms.Button btnHoteis;
+        private System.Windows.Forms.Button btnHospedes;
     }
 }
