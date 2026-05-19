@@ -7,7 +7,7 @@ namespace Reserva_Hotel
     public class QuartoRepository : IRepository<Quarto>
     {
        
-        private readonly string conexao = "Server=localhost;Database=Hotel;Uid=root;Pwd=Quantoe381-672;";
+        private readonly string conexao = "Server=localhost;Database=Hotel;Uid=root;Pwd=root;";
 
         public void Inserir(Quarto quarto)
         {

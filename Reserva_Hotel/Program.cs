@@ -16,7 +16,7 @@ namespace Reserva_Hotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormQuarto());
+            Application.Run(new FormInicial());
         }
     }
 }
