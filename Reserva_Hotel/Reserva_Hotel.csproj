@@ -98,6 +98,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormEditarHospede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarHospede.Designer.cs">
+      <DependentUpon>FormEditarHospede.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHospede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHospede.Designer.cs">
+      <DependentUpon>FormHospede.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormQuarto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     <Compile Include="Repositories\HospedeRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\QuartoRepository.cs" />
+    <EmbeddedResource Include="FormEditarHospede.resx">
+      <DependentUpon>FormEditarHospede.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHospede.resx">
+      <DependentUpon>FormHospede.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormQuarto.resx">
       <DependentUpon>FormQuarto.cs</DependentUpon>
     </EmbeddedResource>
