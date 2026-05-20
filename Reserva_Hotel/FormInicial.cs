@@ -28,5 +28,6 @@ namespace Reserva_Hotel {
             FormPagamento formPagamento = new FormPagamento();
             formPagamento.ShowDialog();
         }
+
     }
 }
