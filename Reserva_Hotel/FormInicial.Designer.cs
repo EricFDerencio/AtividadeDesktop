@@ -26,6 +26,7 @@
             this.btnQuartos = new System.Windows.Forms.Button();
             this.btnHoteis = new System.Windows.Forms.Button();
             this.btnHospedes = new System.Windows.Forms.Button();
+            this.btnPagamentos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnQuartos
@@ -60,12 +61,24 @@
             this.btnHospedes.Text = "Hóspedes";
             this.btnHospedes.UseVisualStyleBackColor = true;
             this.btnHospedes.Click += new System.EventHandler(this.btnHospedes_Click);
-            // 
+            //
+            // btnPagamentos
+            //
+            this.btnPagamentos.Location = new System.Drawing.Point(112, 390);
+            this.btnPagamentos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnPagamentos.Name = "btnPagamentos";
+            this.btnPagamentos.Size = new System.Drawing.Size(150, 44);
+            this.btnPagamentos.TabIndex = 3;
+            this.btnPagamentos.Text = "Pagamentos";
+            this.btnPagamentos.UseVisualStyleBackColor = true;
+            this.btnPagamentos.Click += new System.EventHandler(this.btnPagamentos_Click);
+            //
             // FormInicial
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.Controls.Add(this.btnPagamentos);
             this.Controls.Add(this.btnHospedes);
             this.Controls.Add(this.btnHoteis);
             this.Controls.Add(this.btnQuartos);
@@ -81,5 +94,6 @@
         private System.Windows.Forms.Button btnQuartos;
         private System.Windows.Forms.Button btnHoteis;
         private System.Windows.Forms.Button btnHospedes;
+        private System.Windows.Forms.Button btnPagamentos;
     }
 }
