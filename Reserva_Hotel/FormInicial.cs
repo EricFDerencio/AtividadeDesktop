@@ -22,5 +22,11 @@ namespace Reserva_Hotel {
             FormHospede formHospede = new FormHospede();
             formHospede.ShowDialog();
         }
+
+        private void btnPagamentos_Click(object sender, EventArgs e)
+        {
+            FormPagamento formPagamento = new FormPagamento();
+            formPagamento.ShowDialog();
+        }
     }
 }
