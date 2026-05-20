@@ -10,10 +10,12 @@ namespace Reserva_Hotel
         public decimal PrecoDiaria { get; set; }
         public string Status { get; set; }
         public int HotelId { get; set; }
+        public string NomeHotel { get; set; }
 
         public override string ToString()
         {
-            return $"Quarto: {Numero} | {Tipo} | Diária: R$ {PrecoDiaria:N2} | Status: {Status}";
+            string identificadorHotel = string.IsNullOrWhiteSpace(NomeHotel) ? null : NomeHotel;
+            return $"[{identificadorHotel}] Quarto: {Numero} | {Tipo} | Diária: R$ {PrecoDiaria:N2} | Status: {Status}";
         }
     }
 }

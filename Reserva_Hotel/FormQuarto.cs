@@ -9,14 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Reserva_Hotel.Properties;
-
+using Reserva_Hotel.Models;     
+using Reserva_Hotel.Repositories;  
 
 namespace Reserva_Hotel
 {
     public partial class FormQuarto : Form
     {
         private readonly QuartoRepository _quartoRepository = new QuartoRepository();
+        private readonly HotelRepository _hotelRepository = new HotelRepository();
         private int idQuartoSelecionado = 0;
+
         public FormQuarto()
         {
             InitializeComponent();
@@ -24,10 +27,30 @@ namespace Reserva_Hotel
 
         private void FormQuarto_Load(object sender, EventArgs e)
         {
-            AtualizarListBox();
+            CarregarHoteisNoComboBox(); 
+            AtualizarListBox();        
         }
 
-        private void AtualizarListBox()
+        private void CarregarHoteisNoComboBox()
+        {
+            try
+            {
+                List<Hotel> todosOsHoteis = _hotelRepository.ObterTodos();
+                cmbBxHotel.Items.Clear();
+
+                foreach (var hotel in todosOsHoteis)
+                {
+                    cmbBxHotel.Items.Add(hotel);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Não foi possível carregar a listagem de hotéis no combo: {ex.Message}",
+                    "Erro de Carregamento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AtualizarListBox() 
         {
             try
             {
@@ -42,7 +65,8 @@ namespace Reserva_Hotel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Não foi possível carregar a listagem de quartos: {ex.Message}", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Não foi possível carregar a listagem de quartos: {ex.Message}",
+                    "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -55,15 +79,16 @@ namespace Reserva_Hotel
                     return;
                 }
 
+                Hotel hotelSelecionado = (Hotel)cmbBxHotel.SelectedItem;
+
                 Quarto novoQuarto = new Quarto
                 {
                     Numero = int.Parse(txtBxNumero.Text.Trim()),
                     Tipo = cmbBxTipo.SelectedItem.ToString(),
                     PrecoDiaria = decimal.Parse(txtBxPreco.Text.Trim()),
                     Status = cmbBxStatus.SelectedItem.ToString(),
-                    HotelId = 1
+                    HotelId = hotelSelecionado.Id 
                 };
-
 
                 _quartoRepository.Inserir(novoQuarto);
 
@@ -75,8 +100,7 @@ namespace Reserva_Hotel
             }
             catch (FormatException)
             {
-
-                MessageBox.Show("Os campos 'Número', 'Preço' e 'ID do Hotel' aceitam apenas valores numéricos.",
+                MessageBox.Show("Os campos 'Número' e 'Preço' aceitam apenas valores numéricos.",
                     "Falha no Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
@@ -85,6 +109,7 @@ namespace Reserva_Hotel
                     "Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private bool ValidarCampos()
         {
             if (string.IsNullOrWhiteSpace(txtBxNumero.Text))
@@ -97,7 +122,7 @@ namespace Reserva_Hotel
 
             if (cmbBxTipo.SelectedItem == null)
             {
-                MessageBox.Show("Selecione um Valor no ComboBox",
+                MessageBox.Show("Selecione um Tipo de Quarto no ComboBox.",
                     "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbBxTipo.Focus();
                 return false;
@@ -119,6 +144,14 @@ namespace Reserva_Hotel
                 return false;
             }
 
+            if (cmbBxHotel.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione o Hotel ao qual este quarto pertence.",
+                    "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbBxHotel.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -128,10 +161,9 @@ namespace Reserva_Hotel
             txtBxPreco.Clear();
             cmbBxTipo.SelectedIndex = -1;
             cmbBxStatus.SelectedIndex = -1;
+            cmbBxHotel.SelectedIndex = -1; 
             txtBxNumero.Focus();
         }
-
-
 
         private void lstBxQuartos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -142,6 +174,15 @@ namespace Reserva_Hotel
                 txtBxPreco.Text = quartoSelecionado.PrecoDiaria.ToString();
                 cmbBxTipo.SelectedItem = quartoSelecionado.Tipo;
                 cmbBxStatus.SelectedItem = quartoSelecionado.Status;
+
+                foreach (Hotel hotel in cmbBxHotel.Items)
+                {
+                    if (hotel.Id == quartoSelecionado.HotelId)
+                    {
+                        cmbBxHotel.SelectedItem = hotel;
+                        break;
+                    }
+                }
             }
         }
 
@@ -161,6 +202,8 @@ namespace Reserva_Hotel
                     return;
                 }
 
+                Hotel hotelSelecionado = (Hotel)cmbBxHotel.SelectedItem;
+
                 Quarto quartoEditado = new Quarto
                 {
                     Id = idQuartoSelecionado,
@@ -168,7 +211,7 @@ namespace Reserva_Hotel
                     Tipo = cmbBxTipo.SelectedItem.ToString(),
                     PrecoDiaria = decimal.Parse(txtBxPreco.Text.Trim()),
                     Status = cmbBxStatus.SelectedItem.ToString(),
-                    HotelId = 1
+                    HotelId = hotelSelecionado.Id 
                 };
 
                 _quartoRepository.Editar(quartoEditado);
@@ -205,7 +248,7 @@ namespace Reserva_Hotel
                     _quartoRepository.Deletar(idQuartoSelecionado);
                     MessageBox.Show("Quarto removido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    idQuartoSelecionado = 0; // Reseta o ID
+                    idQuartoSelecionado = 0;
                     LimparCampos();
                     AtualizarListBox();
                 }
@@ -216,6 +259,5 @@ namespace Reserva_Hotel
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

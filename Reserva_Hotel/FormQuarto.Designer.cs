@@ -40,11 +40,13 @@
             this.txtBxNumero = new System.Windows.Forms.TextBox();
             this.lblPreco = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
+            this.lblHotel = new System.Windows.Forms.Label();
+            this.cmbBxHotel = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(378, 391);
+            this.btnExcluir.Location = new System.Drawing.Point(719, 393);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(121, 40);
             this.btnExcluir.TabIndex = 29;
@@ -54,7 +56,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(196, 391);
+            this.btnEditar.Location = new System.Drawing.Point(537, 393);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(121, 40);
             this.btnEditar.TabIndex = 28;
@@ -66,7 +68,7 @@
             // 
             this.lstBxQuartos.FormattingEnabled = true;
             this.lstBxQuartos.ItemHeight = 16;
-            this.lstBxQuartos.Location = new System.Drawing.Point(285, 52);
+            this.lstBxQuartos.Location = new System.Drawing.Point(363, 52);
             this.lstBxQuartos.Name = "lstBxQuartos";
             this.lstBxQuartos.Size = new System.Drawing.Size(550, 260);
             this.lstBxQuartos.TabIndex = 27;
@@ -74,7 +76,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(26, 391);
+            this.btnSalvar.Location = new System.Drawing.Point(367, 393);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(121, 40);
             this.btnSalvar.TabIndex = 26;
@@ -89,7 +91,7 @@
             "Disponível",
             "Ocupado",
             "Manutenção"});
-            this.cmbBxStatus.Location = new System.Drawing.Point(26, 325);
+            this.cmbBxStatus.Location = new System.Drawing.Point(25, 413);
             this.cmbBxStatus.Name = "cmbBxStatus";
             this.cmbBxStatus.Size = new System.Drawing.Size(121, 24);
             this.cmbBxStatus.TabIndex = 25;
@@ -97,7 +99,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(23, 296);
+            this.lblStatus.Location = new System.Drawing.Point(22, 384);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(44, 16);
             this.lblStatus.TabIndex = 24;
@@ -106,7 +108,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(23, 219);
+            this.lblTipo.Location = new System.Drawing.Point(22, 307);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(97, 16);
             this.lblTipo.TabIndex = 23;
@@ -119,21 +121,21 @@
             "Luxo",
             "Suíte",
             "Standard"});
-            this.cmbBxTipo.Location = new System.Drawing.Point(26, 247);
+            this.cmbBxTipo.Location = new System.Drawing.Point(25, 335);
             this.cmbBxTipo.Name = "cmbBxTipo";
             this.cmbBxTipo.Size = new System.Drawing.Size(121, 24);
             this.cmbBxTipo.TabIndex = 22;
             // 
             // txtBxPreco
             // 
-            this.txtBxPreco.Location = new System.Drawing.Point(26, 165);
+            this.txtBxPreco.Location = new System.Drawing.Point(25, 253);
             this.txtBxPreco.Name = "txtBxPreco";
             this.txtBxPreco.Size = new System.Drawing.Size(128, 22);
             this.txtBxPreco.TabIndex = 21;
             // 
             // txtBxNumero
             // 
-            this.txtBxNumero.Location = new System.Drawing.Point(26, 77);
+            this.txtBxNumero.Location = new System.Drawing.Point(25, 165);
             this.txtBxNumero.Name = "txtBxNumero";
             this.txtBxNumero.Size = new System.Drawing.Size(128, 22);
             this.txtBxNumero.TabIndex = 20;
@@ -141,7 +143,7 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(23, 134);
+            this.lblPreco.Location = new System.Drawing.Point(22, 222);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(43, 16);
             this.lblPreco.TabIndex = 19;
@@ -150,17 +152,40 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(23, 41);
+            this.lblNumero.Location = new System.Drawing.Point(22, 129);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(117, 16);
             this.lblNumero.TabIndex = 18;
             this.lblNumero.Text = "Numero do Quarto";
+            // 
+            // lblHotel
+            // 
+            this.lblHotel.AutoSize = true;
+            this.lblHotel.Location = new System.Drawing.Point(22, 43);
+            this.lblHotel.Name = "lblHotel";
+            this.lblHotel.Size = new System.Drawing.Size(39, 16);
+            this.lblHotel.TabIndex = 30;
+            this.lblHotel.Text = "Hotel";
+            // 
+            // cmbBxHotel
+            // 
+            this.cmbBxHotel.FormattingEnabled = true;
+            this.cmbBxHotel.Items.AddRange(new object[] {
+            "Luxo",
+            "Suíte",
+            "Standard"});
+            this.cmbBxHotel.Location = new System.Drawing.Point(25, 75);
+            this.cmbBxHotel.Name = "cmbBxHotel";
+            this.cmbBxHotel.Size = new System.Drawing.Size(121, 24);
+            this.cmbBxHotel.TabIndex = 31;
             // 
             // FormQuarto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1368, 737);
+            this.Controls.Add(this.cmbBxHotel);
+            this.Controls.Add(this.lblHotel);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lstBxQuartos);
@@ -195,6 +220,8 @@
         private System.Windows.Forms.TextBox txtBxNumero;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Label lblNumero;
+        private System.Windows.Forms.Label lblHotel;
+        private System.Windows.Forms.ComboBox cmbBxHotel;
     }
 }
 

@@ -8,7 +8,7 @@ namespace Reserva_Hotel.Repositories
 {
     public class HospedeRepository : IRepository<Hospede>
     {
-        private readonly string _connectionString = "Server=localhost;Database=Hotel;Uid=root;Pwd=root;";
+        private readonly string _connectionString = "Server=localhost;Database=Hotel;Uid=root;Pwd=Quantoe381-672;";
 
         public void Inserir(Hospede hospede)
         {
