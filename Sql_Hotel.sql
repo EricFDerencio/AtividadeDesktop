@@ -1,6 +1,6 @@
-create database hotel;
+create database app_db;
 
-use Hotel;
+use app_db;
 
 CREATE TABLE Hotel (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,12 +30,6 @@ create table Quarto (
     hotelId int not null,
     FOREIGN KEY (hotelId) REFERENCES Hotel(id)
 );
-
-INSERT INTO Hotel (nome, endereco, cidade, telefone, estrelas) 
-VALUES ('Hotel Central', 'Rua São Bento, 123', 'Araraquara', '(16) 3333-0000', 4);
-
-Insert into Quarto (numero, tipo, precoDiaria, status, hotelId)
-Values (101, 'Suíte', 50.00, 'Ocupado',1);
 
 -- =============================================================
 -- Tabela Reserva
@@ -71,3 +65,45 @@ CREATE TABLE Pagamento (
     FOREIGN KEY (hospedeId) REFERENCES hospedes(id),
     FOREIGN KEY (reservaId) REFERENCES Reserva(id)
 );
+
+-- =============================================================
+-- Inserts de Teste (Hotéis, Hóspedes, Quartos, Reservas, Pagamentos)
+-- =============================================================
+
+-- 1. Hotéis
+INSERT INTO Hotel (nome, endereco, cidade, telefone, estrelas) VALUES
+('Hotel Central', 'Rua São Bento, 123', 'Araraquara', '(16) 3333-0000', 4),
+('Plaza Hotel', 'Av. Paulista, 1000', 'São Paulo', '(11) 3214-5555', 5),
+('Pousada Beira Mar', 'Av. Beira Mar, 500', 'Santos', '(13) 3879-1122', 3);
+
+-- 2. Hóspedes
+INSERT INTO hospedes (nome, sobrenome, cpf, dataNascimento, email, telefone) VALUES
+('Maria', 'Silva', '123.456.789-00', '1990-05-15', 'maria.silva@email.com', '16999991111'),
+('João', 'Santos', '987.654.321-11', '1985-10-22', 'joao.santos@email.com', '11988882222'),
+('Ana', 'Oliveira', '111.222.333-44', '1998-02-28', 'ana.oliveira@email.com', '13977773333'),
+('Carlos', 'Souza', '555.666.777-88', '1975-07-04', 'carlos.souza@email.com', '16966664444');
+
+-- 3. Quartos
+INSERT INTO Quarto (numero, tipo, precoDiaria, status, hotelId) VALUES
+(101, 'Suíte', 150.00, 'Ocupado', 1),
+(102, 'Solteiro', 80.00, 'Disponível', 1),
+(103, 'Duplo', 120.00, 'Disponível', 1),
+(201, 'Presidencial', 500.00, 'Disponível', 2),
+(202, 'Luxo', 250.00, 'Ocupado', 2),
+(301, 'Standard', 90.00, 'Manutenção', 3),
+(302, 'Standard', 90.00, 'Disponível', 3);
+
+-- 4. Reservas
+INSERT INTO Reserva (hospedeId, quartoId, dataEntrada, dataSaida, status) VALUES
+(1, 1, '2026-06-01', '2026-06-05', 'Confirmada'),
+(2, 5, '2026-06-10', '2026-06-15', 'Confirmada'),
+(3, 2, '2026-05-20', '2026-05-22', 'Check-out'),
+(4, 6, '2026-05-18', '2026-05-25', 'Cancelada');
+
+-- 5. Pagamentos
+INSERT INTO Pagamento (hospedeId, reservaId, valorTotal, dataPagamento, formaPagamento, status, observacao) VALUES
+(1, 1, 600.00, '2026-05-20 14:30:00', 'PIX', 'Pago', 'Pagamento antecipado via PIX'),
+(2, 2, 1250.00, '2026-05-21 09:00:00', 'Cartão de Crédito', 'Pendente', 'Aguardando confirmação da operadora'),
+(3, 3, 160.00, '2026-05-22 12:00:00', 'Cartão de Débito', 'Pago', 'Pago no check-out'),
+(4, null, 100.00, '2026-05-19 10:00:00', 'Dinheiro', 'Cancelado', 'Taxa de cancelamento reembolsada');
+

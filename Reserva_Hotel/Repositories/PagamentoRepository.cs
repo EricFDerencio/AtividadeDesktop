@@ -8,7 +8,7 @@ namespace Reserva_Hotel.Repositories
 {
     public class PagamentoRepository : IRepository<Pagamento>
     {
-        private readonly string _connectionString = "Server=localhost;Database=Hotel;Uid=root;Pwd=Quantoe381-672;";
+        private readonly string _connectionString = "Server=localhost;Database=app_db;Uid=app_user;Pwd=app_pass;";
 
         public void Inserir(Pagamento pagamento)
         {

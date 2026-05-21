@@ -1,4 +1,4 @@
-﻿namespace Reserva_Hotel {
+namespace Reserva_Hotel {
     partial class FormInicial {
         /// <summary>
         /// Required designer variable.
@@ -95,6 +95,7 @@
             this.btnReserva.TabIndex = 5;
             this.btnReserva.Text = "Reserva";
             this.btnReserva.UseVisualStyleBackColor = true;
+            this.btnReserva.Click += new System.EventHandler(this.btnReserva_Click);
             // 
             // FormInicial
             // 

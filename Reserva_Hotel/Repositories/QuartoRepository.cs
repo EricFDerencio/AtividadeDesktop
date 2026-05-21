@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ namespace Reserva_Hotel
     public class QuartoRepository : IRepository<Quarto>
     {
 
-        private readonly string conexao = "Server=localhost;Database=Hotel;Uid=root;Pwd=Quantoe381-672;";
+        private readonly string conexao = "Server=localhost;Database=app_db;Uid=app_user;Pwd=app_pass;";
 
         public void Inserir(Quarto quarto)
         {

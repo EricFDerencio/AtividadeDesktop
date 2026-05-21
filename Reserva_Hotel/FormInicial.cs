@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace Reserva_Hotel {
@@ -27,6 +27,12 @@ namespace Reserva_Hotel {
         {
             FormPagamento formPagamento = new FormPagamento();
             formPagamento.ShowDialog();
+        }
+
+        private void btnReserva_Click(object sender, EventArgs e)
+        {
+            FormReserva formReserva = new FormReserva();
+            formReserva.ShowDialog();
         }
 
     }

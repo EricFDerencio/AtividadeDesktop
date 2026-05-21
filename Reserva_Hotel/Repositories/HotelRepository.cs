@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ using Reserva_Hotel.Models;
 
 namespace Reserva_Hotel.Repositories {
     public class HotelRepository {
-        private readonly string conexao = "Server=localhost;Database=Hotel;Uid=root;Pwd=Quantoe381-672;";
+        private readonly string conexao = "Server=localhost;Database=app_db;Uid=app_user;Pwd=app_pass;";
 
 
         public List<Hotel> ObterTodos() {
